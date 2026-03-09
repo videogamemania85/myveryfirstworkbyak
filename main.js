@@ -47,13 +47,12 @@ function toggleTheme() {
 }
 
 // 페이지 로드 시 저장된 테마 적용
+// defer 스크립트는 DOM 파싱 완료 후 실행되므로 DOMContentLoaded 없이 바로 접근 가능
 (function () {
   const saved = localStorage.getItem('theme');
   if (saved === 'dark') {
     document.body.classList.add('dark');
-    document.addEventListener('DOMContentLoaded', function () {
-      const btn = document.getElementById('theme-toggle');
-      if (btn) btn.textContent = '라이트 모드';
-    });
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = '라이트 모드';
   }
 })();
