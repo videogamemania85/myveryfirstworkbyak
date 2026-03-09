@@ -99,11 +99,13 @@
 
 /* 질문 */
 .question-wrap {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: 18px;
   padding: 36px 40px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), 0 0 40px rgba(167,139,250,0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   animation: fadeIn 0.3s ease;
 }
 
@@ -136,9 +138,9 @@
 }
 
 .option-btn {
-  background: var(--surface2);
+  background: rgba(255,255,255,0.05);
   color: var(--text);
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--glass-border);
   border-radius: 12px;
   padding: 14px 18px;
   font-size: 0.93rem;
@@ -223,8 +225,10 @@
 }
 
 .result-compatibility {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 14px;
   padding: 24px 28px;
   margin-bottom: 28px;
