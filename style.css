@@ -71,3 +71,65 @@ button:hover {
   font-size: 0.85rem;
   padding: 8px 16px;
 }
+
+/* 제휴 문의 폼 */
+.contact-section {
+  margin-top: 40px;
+  text-align: left;
+  border-top: 1px solid var(--border-color);
+  padding-top: 32px;
+}
+
+.contact-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  opacity: 0.75;
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--text-color);
+}
+
+#submit-btn {
+  width: 100%;
+  margin-top: 4px;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+#form-status {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  min-height: 1.2em;
+}
+
+#form-status.success { color: #4caf50; }
+#form-status.error   { color: #f44336; }
