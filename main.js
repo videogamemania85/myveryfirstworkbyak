@@ -1,4 +1,31 @@
-// 제휴 문의 폼 AJAX 제출
+// ===== 테마 =====
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+(function () {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') {
+    document.body.classList.add('dark');
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = '☀️';
+  }
+})();
+
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+// ===== 모바일 메뉴 =====
+document.getElementById('menu-btn').addEventListener('click', function () {
+  document.getElementById('mobile-nav').classList.toggle('open');
+});
+
+function closeMobileNav() {
+  document.getElementById('mobile-nav').classList.remove('open');
+}
+
+// ===== 폼 AJAX 제출 =====
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -22,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (res.ok) {
         status.className = 'success';
-        status.textContent = '문의가 접수되었습니다. 감사합니다!';
+        status.textContent = '문의가 접수되었습니다. 빠르게 답변 드리겠습니다!';
         form.reset();
       } else {
         throw new Error();
@@ -36,23 +63,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
-function toggleTheme() {
-  const body = document.body;
-  const btn = document.getElementById('theme-toggle');
-  const isDark = body.classList.toggle('dark');
-
-  btn.textContent = isDark ? '라이트 모드' : '다크 모드';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-// 페이지 로드 시 저장된 테마 적용
-// defer 스크립트는 DOM 파싱 완료 후 실행되므로 DOMContentLoaded 없이 바로 접근 가능
-(function () {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark') {
-    document.body.classList.add('dark');
-    const btn = document.getElementById('theme-toggle');
-    if (btn) btn.textContent = '라이트 모드';
-  }
-})();

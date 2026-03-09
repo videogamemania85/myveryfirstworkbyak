@@ -3,37 +3,252 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <meta name="description" content="디지털 라이프를 더 스마트하게. 생산성, 테크, 일상 꿀팁을 매일 업데이트합니다." />
+  <meta name="keywords" content="생산성, 테크, 디지털라이프, 꿀팁, IT, 앱추천" />
+  <meta property="og:title" content="스마트데일리 — 디지털 라이프 가이드" />
+  <meta property="og:description" content="디지털 라이프를 더 스마트하게. 생산성, 테크, 일상 꿀팁." />
+  <meta property="og:type" content="website" />
+  <title>스마트데일리 — 디지털 라이프 가이드</title>
+  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <div class="container">
-    <button id="theme-toggle" onclick="toggleTheme()">다크 모드</button>
-    <h1>Hello, world!</h1>
-    <p class="hero-sub">간단한 소개 문구를 여기에 넣어보세요.</p>
-    <button class="press-btn" onclick="console.log('hello');">Press me</button>
 
-    <section class="contact-section">
-      <h2>제휴 문의</h2>
-      <p class="form-desc">함께 성장할 파트너를 찾고 있습니다. 편하게 연락주세요.</p>
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="inner">
+      <a href="#" class="logo">스마트데일리</a>
+      <nav class="main-nav">
+        <a href="#articles">최신글</a>
+        <a href="#tips">꿀팁</a>
+        <a href="#about">소개</a>
+        <a href="#contact">문의</a>
+      </nav>
+      <button id="theme-toggle" aria-label="테마 변경">🌙</button>
+      <button class="menu-btn" id="menu-btn" aria-label="메뉴">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#articles" onclick="closeMobileNav()">최신글</a>
+      <a href="#tips" onclick="closeMobileNav()">꿀팁</a>
+      <a href="#about" onclick="closeMobileNav()">소개</a>
+      <a href="#contact" onclick="closeMobileNav()">문의</a>
+    </nav>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="inner">
+      <p class="hero-tag">디지털 라이프 가이드</p>
+      <h1>더 스마트한 하루를<br>만드는 방법</h1>
+      <p class="hero-desc">생산성 향상, 최신 테크 트렌드, 실생활 앱 꿀팁까지.<br>매일 새로운 인사이트를 전달합니다.</p>
+      <a href="#articles" class="cta-btn">최신 글 보기</a>
+    </div>
+  </section>
+
+  <!-- 최신 아티클 -->
+  <section class="section" id="articles">
+    <div class="inner">
+      <h2 class="section-title">최신 글</h2>
+
+      <div class="featured-card">
+        <div class="featured-badge">✦ 추천</div>
+        <div class="featured-content">
+          <span class="category-tag">생산성</span>
+          <h3>아침 30분이 하루를 바꾼다 — 최고의 모닝 루틴 5가지</h3>
+          <p>성공한 사람들의 공통점은 아침을 어떻게 시작하느냐에 있습니다. 구글, 애플, 마이크로소프트 임원들이 공유한 모닝 루틴을 분석해 누구나 따라 할 수 있는 5단계로 정리했습니다. 단 30분 투자로 집중력과 에너지를 극대화하세요.</p>
+          <div class="card-meta">
+            <span>2026. 03. 09</span>
+            <span>·</span>
+            <span>읽는 시간 5분</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-img productivity"></div>
+          <div class="card-body">
+            <span class="category-tag">테크</span>
+            <h4>2026년 꼭 써봐야 할 AI 도구 7선</h4>
+            <p>ChatGPT 이후 AI 도구 시장은 폭발적으로 성장했습니다. 실무에서 바로 쓸 수 있는 글쓰기, 이미지, 코딩, 회의록 정리 AI를 엄선해 소개합니다.</p>
+            <div class="card-meta">
+              <span>2026. 03. 07</span><span>·</span><span>4분</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img finance"></div>
+          <div class="card-body">
+            <span class="category-tag">앱 리뷰</span>
+            <h4>노션 vs 옵시디언 — 나에게 맞는 메모 앱은?</h4>
+            <p>두 앱을 6개월씩 직접 사용한 경험을 바탕으로 목적, 학습 곡선, 가격, 협업 기능을 비교했습니다. 어떤 앱이 당신에게 맞을지 확인해보세요.</p>
+            <div class="card-meta">
+              <span>2026. 03. 05</span><span>·</span><span>6분</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img health"></div>
+          <div class="card-body">
+            <span class="category-tag">웰니스</span>
+            <h4>하루 종일 앉아서 일하는 당신을 위한 스트레칭 루틴</h4>
+            <p>재택근무·사무직 종사자 600명을 대상으로 한 조사에서 87%가 만성 목·어깨 통증을 호소했습니다. 의사가 추천하는 5분 스트레칭으로 통증을 예방하세요.</p>
+            <div class="card-meta">
+              <span>2026. 03. 03</span><span>·</span><span>3분</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img money"></div>
+          <div class="card-body">
+            <span class="category-tag">재테크</span>
+            <h4>월급쟁이가 절세하는 방법 — 연말정산 완벽 가이드</h4>
+            <p>매년 수십만 명이 놓치는 공제 항목을 총정리했습니다. 신용카드·체크카드 사용 비율부터 의료비·교육비 공제까지, 평균 38만 원을 더 돌려받는 전략을 공개합니다.</p>
+            <div class="card-meta">
+              <span>2026. 03. 01</span><span>·</span><span>7분</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img tech"></div>
+          <div class="card-body">
+            <span class="category-tag">테크</span>
+            <h4>스마트폰 배터리 수명을 2배 늘리는 설정법</h4>
+            <p>아이폰·갤럭시 모두 적용 가능한 배터리 절약 설정을 공개합니다. 제조사도 알려주지 않는 숨겨진 옵션으로 하루 사용 시간을 획기적으로 늘려보세요.</p>
+            <div class="card-meta">
+              <span>2026. 02. 27</span><span>·</span><span>4분</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img study"></div>
+          <div class="card-body">
+            <span class="category-tag">자기계발</span>
+            <h4>포모도로 테크닉을 업그레이드하는 3가지 방법</h4>
+            <p>25분 집중 + 5분 휴식이라는 기본 포모도로를 알고 있다면 이제는 심화 버전을 시도할 때입니다. 인지과학 연구를 기반으로 최적화된 변형 포모도로를 소개합니다.</p>
+            <div class="card-meta">
+              <span>2026. 02. 25</span><span>·</span><span>5분</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 꿀팁 배너 -->
+  <section class="tips-section" id="tips">
+    <div class="inner">
+      <h2 class="section-title">오늘의 꿀팁</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">⌨️</div>
+          <h4>크롬 단축키</h4>
+          <p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd>로 방금 닫은 탭을 다시 열 수 있습니다.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">📋</div>
+          <h4>클립보드 히스토리</h4>
+          <p>윈도우에서 <kbd>Win</kbd>+<kbd>V</kbd>를 누르면 복사 기록 전체를 볼 수 있습니다.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🔍</div>
+          <h4>구글 검색 팁</h4>
+          <p>검색어 앞에 <code>site:</code>를 붙이면 특정 사이트 내에서만 검색됩니다.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🔋</div>
+          <h4>배터리 절약</h4>
+          <p>화면 밝기를 10%만 낮춰도 배터리 사용 시간이 평균 15% 늘어납니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 소개 -->
+  <section class="about-section" id="about">
+    <div class="inner about-inner">
+      <div class="about-text">
+        <h2>스마트데일리 소개</h2>
+        <p>스마트데일리는 디지털 시대를 살아가는 모든 분들을 위한 실용 정보 블로그입니다.</p>
+        <p>광고성 정보나 과장된 내용 없이, 직접 검증하고 경험한 내용만을 전달합니다. 생산성 향상, 최신 기술 트렌드, 건강한 디지털 습관까지 — 바쁜 일상에서 바로 써먹을 수 있는 콘텐츠를 매주 업데이트합니다.</p>
+        <ul class="about-list">
+          <li>✔ 직접 검증한 실용 정보만 제공</li>
+          <li>✔ 광고·협찬 여부를 항상 투명하게 공개</li>
+          <li>✔ 독자 질문에 직접 답변</li>
+        </ul>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-num">200+</span>
+          <span class="stat-label">발행 아티클</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">12K+</span>
+          <span class="stat-label">월간 독자</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4.8★</span>
+          <span class="stat-label">독자 만족도</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 제휴 문의 -->
+  <section class="contact-section" id="contact">
+    <div class="inner contact-inner">
+      <h2>제휴 · 광고 문의</h2>
+      <p class="contact-desc">콘텐츠 협업, 광고, 제품 리뷰 의뢰는 아래 양식으로 보내주세요.<br>영업일 기준 1~2일 내에 답변 드립니다.</p>
       <form action="https://formspree.io/f/mzdjdabp" method="POST" id="contact-form">
-        <div class="form-group">
-          <label for="name">이름 / 회사명</label>
-          <input type="text" id="name" name="name" placeholder="홍길동 / (주)회사명" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">이름 / 회사명</label>
+            <input type="text" id="name" name="name" placeholder="홍길동 / (주)회사명" required />
+          </div>
+          <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required />
+          </div>
         </div>
         <div class="form-group">
-          <label for="email">이메일</label>
-          <input type="email" id="email" name="email" placeholder="example@email.com" required />
+          <label for="subject">문의 유형</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>선택해주세요</option>
+            <option value="광고">광고 제안</option>
+            <option value="콘텐츠 협업">콘텐츠 협업</option>
+            <option value="제품 리뷰">제품 리뷰 의뢰</option>
+            <option value="기타">기타</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="message">문의 내용</label>
-          <textarea id="message" name="message" rows="5" placeholder="제휴 관련 내용을 자유롭게 작성해 주세요." required></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="문의 내용을 자유롭게 작성해 주세요." required></textarea>
         </div>
         <button type="submit" id="submit-btn">문의 보내기</button>
         <p id="form-status"></p>
       </form>
-    </section>
-  </div>
-  <script defer type="text/javascript" src="/main.js"></script>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <div class="inner footer-inner">
+      <span class="logo">스마트데일리</span>
+      <p>© 2026 스마트데일리. 콘텐츠 무단 복제를 금합니다.</p>
+      <nav class="footer-nav">
+        <a href="#">개인정보처리방침</a>
+        <a href="#">광고 안내</a>
+        <a href="#contact">문의</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
