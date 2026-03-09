@@ -799,6 +799,99 @@ kbd, code {
   color: var(--text-light);
 }
 
+/* ===== 개인정보처리방침 페이지 ===== */
+.policy-page {
+  padding: 60px 0 80px;
+}
+
+.policy-inner {
+  max-width: 760px;
+}
+
+.policy-header {
+  margin-bottom: 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.policy-header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+
+.policy-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.policy-body > * + * {
+  margin-top: 1.5rem;
+}
+
+.policy-body h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.policy-body h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  color: var(--text);
+}
+
+.policy-body p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.policy-body ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.policy-body ul li {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.policy-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.policy-contact {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.policy-contact p {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.policy-footer-nav {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
 /* ===== 반응형 ===== */
 @media (max-width: 900px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
