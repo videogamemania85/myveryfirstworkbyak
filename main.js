@@ -25,6 +25,81 @@ function closeMobileNav() {
   document.getElementById('mobile-nav').classList.remove('open');
 }
 
+// ===== 카테고리 탭 필터 =====
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.cat-tab');
+  const cards = document.querySelectorAll('#card-grid .card[data-category]');
+  const featured = document.querySelector('.featured-card[data-category]');
+  const noResults = document.getElementById('no-results');
+  const adInfeed = document.getElementById('ad-infeed');
+
+  function filterCards(filter) {
+    let visibleCount = 0;
+
+    // 피처드 카드 필터
+    if (featured) {
+      const match = filter === 'all' || featured.dataset.category === filter;
+      featured.style.display = match ? '' : 'none';
+    }
+
+    // 그리드 카드 필터
+    cards.forEach(function (card) {
+      const match = filter === 'all' || card.dataset.category === filter;
+      card.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    // 인피드 광고: 전체 보기일 때만 표시
+    if (adInfeed) {
+      adInfeed.style.display = filter === 'all' ? '' : 'none';
+    }
+
+    noResults.style.display = visibleCount === 0 && !(featured && featured.style.display !== 'none') ? 'block' : 'none';
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      filterCards(tab.dataset.filter);
+    });
+  });
+
+  // 헤더 네비 카테고리 링크 클릭 시 탭 자동 활성화
+  document.querySelectorAll('[data-cat]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      const cat = link.dataset.cat;
+      const matchTab = document.querySelector('.cat-tab[data-filter="' + cat + '"]');
+      if (matchTab) {
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        matchTab.classList.add('active');
+        filterCards(cat);
+      }
+    });
+  });
+});
+
+// ===== 뉴스레터 구독 =====
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('newsletter-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const status = document.getElementById('newsletter-status');
+    const email = document.getElementById('nl-email').value;
+
+    // 이메일 형식 간단 검증
+    if (!email.includes('@')) {
+      status.textContent = '올바른 이메일 주소를 입력해 주세요.';
+      return;
+    }
+
+    status.textContent = '✓ 구독 신청이 완료되었습니다! 다음 뉴스레터를 기대해 주세요.';
+    form.reset();
+  });
+});
+
 // ===== 폼 AJAX 제출 =====
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('contact-form');

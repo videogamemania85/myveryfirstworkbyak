@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="디지털 라이프를 더 스마트하게. 생산성, 테크, 일상 꿀팁을 매일 업데이트합니다." />
-  <meta name="keywords" content="생산성, 테크, 디지털라이프, 꿀팁, IT, 앱추천" />
+  <meta name="keywords" content="생산성, 테크, 디지털라이프, 꿀팁, IT, 앱추천, 재테크, 웰니스" />
   <meta property="og:title" content="스마트데일리 — 디지털 라이프 가이드" />
   <meta property="og:description" content="디지털 라이프를 더 스마트하게. 생산성, 테크, 일상 꿀팁." />
   <meta property="og:type" content="website" />
@@ -19,6 +19,9 @@
       <a href="#" class="logo">스마트데일리</a>
       <nav class="main-nav">
         <a href="#articles">최신글</a>
+        <a href="#articles" data-cat="생산성">생산성</a>
+        <a href="#articles" data-cat="테크">테크</a>
+        <a href="#articles" data-cat="재테크">재테크</a>
         <a href="#tips">꿀팁</a>
         <a href="#about">소개</a>
         <a href="#contact">문의</a>
@@ -44,12 +47,33 @@
     </div>
   </section>
 
+  <!-- 광고 슬롯 #1 — 히어로 하단 (상단 배너) -->
+  <div class="ad-slot ad-slot--banner">
+    <div class="inner">
+      <!-- Google AdSense 광고 코드를 여기에 삽입하세요 -->
+      <div class="ad-placeholder">광고</div>
+    </div>
+  </div>
+
   <!-- 최신 아티클 -->
   <section class="section" id="articles">
     <div class="inner">
-      <h2 class="section-title">최신 글</h2>
+      <div class="section-header">
+        <h2 class="section-title">최신 글</h2>
 
-      <div class="featured-card">
+        <!-- 카테고리 탭 -->
+        <div class="cat-tabs" id="cat-tabs">
+          <button class="cat-tab active" data-filter="all">전체</button>
+          <button class="cat-tab" data-filter="생산성">생산성</button>
+          <button class="cat-tab" data-filter="테크">테크</button>
+          <button class="cat-tab" data-filter="앱 리뷰">앱 리뷰</button>
+          <button class="cat-tab" data-filter="웰니스">웰니스</button>
+          <button class="cat-tab" data-filter="재테크">재테크</button>
+          <button class="cat-tab" data-filter="자기계발">자기계발</button>
+        </div>
+      </div>
+
+      <div class="featured-card" data-category="생산성">
         <div class="featured-badge">✦ 추천</div>
         <div class="featured-content">
           <span class="category-tag">생산성</span>
@@ -63,9 +87,9 @@
         </div>
       </div>
 
-      <div class="card-grid">
+      <div class="card-grid" id="card-grid">
 
-        <article class="card">
+        <article class="card" data-category="테크">
           <div class="card-img productivity"></div>
           <div class="card-body">
             <span class="category-tag">테크</span>
@@ -77,7 +101,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="앱 리뷰">
           <div class="card-img finance"></div>
           <div class="card-body">
             <span class="category-tag">앱 리뷰</span>
@@ -89,7 +113,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="웰니스">
           <div class="card-img health"></div>
           <div class="card-body">
             <span class="category-tag">웰니스</span>
@@ -101,7 +125,13 @@
           </div>
         </article>
 
-        <article class="card">
+        <!-- 광고 슬롯 #2 — 카드 그리드 중간 (인피드) -->
+        <div class="ad-slot ad-slot--infeed card" id="ad-infeed">
+          <!-- Google AdSense 인피드 광고 코드를 여기에 삽입하세요 -->
+          <div class="ad-placeholder ad-placeholder--infeed">광고</div>
+        </div>
+
+        <article class="card" data-category="재테크">
           <div class="card-img money"></div>
           <div class="card-body">
             <span class="category-tag">재테크</span>
@@ -113,7 +143,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="테크">
           <div class="card-img tech"></div>
           <div class="card-body">
             <span class="category-tag">테크</span>
@@ -125,7 +155,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="자기계발">
           <div class="card-img study"></div>
           <div class="card-body">
             <span class="category-tag">자기계발</span>
@@ -138,10 +168,13 @@
         </article>
 
       </div>
+
+      <!-- 필터 결과 없음 메시지 -->
+      <p class="no-results" id="no-results" style="display:none;">해당 카테고리의 글이 없습니다.</p>
     </div>
   </section>
 
-  <!-- 꿀팁 배너 -->
+  <!-- 꿀팁 섹션 -->
   <section class="tips-section" id="tips">
     <div class="inner">
       <h2 class="section-title">오늘의 꿀팁</h2>
@@ -167,6 +200,30 @@
           <p>화면 밝기를 10%만 낮춰도 배터리 사용 시간이 평균 15% 늘어납니다.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 광고 슬롯 #3 — 콘텐츠 하단 (멀티플렉스) -->
+  <div class="ad-slot ad-slot--multiplex">
+    <div class="inner">
+      <!-- Google AdSense 멀티플렉스 광고 코드를 여기에 삽입하세요 -->
+      <div class="ad-placeholder">광고</div>
+    </div>
+  </div>
+
+  <!-- 뉴스레터 구독 -->
+  <section class="newsletter-section">
+    <div class="inner newsletter-inner">
+      <div class="newsletter-text">
+        <h2>매주 스마트한 인사이트를 받아보세요</h2>
+        <p>검증된 생산성 팁, 최신 테크 소식, 실용 앱 리뷰를 매주 월요일 아침 무료로 보내드립니다. 구독자 8,400명과 함께하세요.</p>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" id="nl-email" placeholder="이메일 주소 입력" required />
+        <button type="submit">무료 구독</button>
+      </form>
+      <p class="newsletter-note">스팸 없음. 언제든 구독 취소 가능.</p>
+      <p class="newsletter-status" id="newsletter-status"></p>
     </div>
   </section>
 
@@ -238,14 +295,33 @@
 
   <!-- 푸터 -->
   <footer class="site-footer">
-    <div class="inner footer-inner">
-      <span class="logo">스마트데일리</span>
+    <div class="inner footer-top">
+      <div class="footer-brand">
+        <span class="logo">스마트데일리</span>
+        <p>디지털 라이프를 더 스마트하게.<br>매일 검증된 인사이트를 전달합니다.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>카테고리</h5>
+          <a href="#articles" data-cat="생산성">생산성</a>
+          <a href="#articles" data-cat="테크">테크</a>
+          <a href="#articles" data-cat="앱 리뷰">앱 리뷰</a>
+          <a href="#articles" data-cat="웰니스">웰니스</a>
+          <a href="#articles" data-cat="재테크">재테크</a>
+          <a href="#articles" data-cat="자기계발">자기계발</a>
+        </div>
+        <div class="footer-col">
+          <h5>사이트</h5>
+          <a href="#about">소개</a>
+          <a href="#tips">꿀팁</a>
+          <a href="#contact">문의</a>
+          <a href="#">개인정보처리방침</a>
+          <a href="#">광고 안내</a>
+        </div>
+      </div>
+    </div>
+    <div class="inner footer-bottom">
       <p>© 2026 스마트데일리. 콘텐츠 무단 복제를 금합니다.</p>
-      <nav class="footer-nav">
-        <a href="#">개인정보처리방침</a>
-        <a href="#">광고 안내</a>
-        <a href="#contact">문의</a>
-      </nav>
     </div>
   </footer>
 
