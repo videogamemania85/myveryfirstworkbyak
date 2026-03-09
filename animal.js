@@ -252,7 +252,7 @@ function shareKakao() {
     content: {
       title: `나의 동물 관상은 ${emoji} ${name}!`,
       description: '7가지 질문으로 알아보는 나의 동물상은? 친구에게도 공유해보세요 🐾',
-      imageUrl: 'https://smartdaily.kr/og-animal.png',
+      imageUrl: 'https://via.placeholder.com/800x400/5b5ef4/ffffff?text=동물+관상+테스트',
       link: {
         mobileWebUrl: 'https://smartdaily.kr/animal.html',
         webUrl: 'https://smartdaily.kr/animal.html',
