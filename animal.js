@@ -1,6 +1,6 @@
 // ===== 카카오 SDK 초기화 =====
 // ※ JavaScript 앱키를 아래에 입력하세요 (https://developers.kakao.com)
-const KAKAO_APP_KEY = 'YOUR_KAKAO_JAVASCRIPT_APP_KEY';
+const KAKAO_APP_KEY = 'f7d5bff80bc9385e89fd3ab472528d77';
 
 window.addEventListener('load', function () {
   if (typeof Kakao !== 'undefined' && KAKAO_APP_KEY !== 'YOUR_KAKAO_JAVASCRIPT_APP_KEY') {
