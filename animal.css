@@ -257,6 +257,29 @@
   flex-wrap: wrap;
 }
 
+.kakao-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEE500;
+  color: #000000;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 0.97rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(254,229,0,0.4);
+}
+.kakao-btn:hover {
+  background: #F5DC00;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(254,229,0,0.5);
+}
+.kakao-btn:active { transform: translateY(0); }
+
 .share-btn {
   background: transparent;
   color: var(--text);

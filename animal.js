@@ -1,3 +1,13 @@
+// ===== 카카오 SDK 초기화 =====
+// ※ JavaScript 앱키를 아래에 입력하세요 (https://developers.kakao.com)
+const KAKAO_APP_KEY = 'YOUR_KAKAO_JAVASCRIPT_APP_KEY';
+
+window.addEventListener('load', function () {
+  if (typeof Kakao !== 'undefined' && KAKAO_APP_KEY !== 'YOUR_KAKAO_JAVASCRIPT_APP_KEY') {
+    Kakao.init(KAKAO_APP_KEY);
+  }
+});
+
 // ===== 질문 데이터 =====
 const questions = [
   {
@@ -228,12 +238,48 @@ function restartQuiz() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function shareKakao() {
+  const name = document.getElementById('result-name').textContent;
+  const emoji = document.getElementById('result-animal').textContent;
+
+  if (typeof Kakao === 'undefined' || !Kakao.isInitialized()) {
+    alert('카카오 앱키가 설정되지 않았습니다.\nanimal.js의 KAKAO_APP_KEY를 입력해 주세요.');
+    return;
+  }
+
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: `나의 동물 관상은 ${emoji} ${name}!`,
+      description: '7가지 질문으로 알아보는 나의 동물상은? 친구에게도 공유해보세요 🐾',
+      imageUrl: 'https://smartdaily.kr/og-animal.png',
+      link: {
+        mobileWebUrl: 'https://smartdaily.kr/animal.html',
+        webUrl: 'https://smartdaily.kr/animal.html',
+      },
+    },
+    buttons: [
+      {
+        title: '나도 테스트하기',
+        link: {
+          mobileWebUrl: 'https://smartdaily.kr/animal.html',
+          webUrl: 'https://smartdaily.kr/animal.html',
+        },
+      },
+    ],
+  });
+}
+
 function shareResult() {
   const name = document.getElementById('result-name').textContent;
-  const text = `나의 동물 관상은 ${name}! 🐾 너는 어떤 동물상이야? → https://smartdaily.kr/animal.html`;
+  const emoji = document.getElementById('result-animal').textContent;
+  const text = `나의 동물 관상은 ${emoji} ${name}! 🐾 너는 어떤 동물상이야?`;
+  const url = 'https://smartdaily.kr/animal.html';
+
   if (navigator.share) {
-    navigator.share({ title: '동물 관상 테스트', text, url: 'https://smartdaily.kr/animal.html' });
+    navigator.share({ title: '동물 관상 테스트', text, url });
   } else {
-    navigator.clipboard.writeText(text).then(() => alert('링크가 복사되었습니다!'));
+    navigator.clipboard.writeText(`${text} → ${url}`)
+      .then(() => alert('링크가 복사되었습니다!'));
   }
 }
